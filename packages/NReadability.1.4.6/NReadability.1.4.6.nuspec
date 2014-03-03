@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>NReadability</id>
+    <version>1.4.6</version>
+    <title>NReadability</title>
+    <authors>Marek Stój</authors>
+    <owners>Marek Stój</owners>
+    <projectUrl>https://github.com/marek-stoj/NReadability</projectUrl>
+    <iconUrl>https://lh4.googleusercontent.com/-aoZohhWHUXc/T2TBnkl1ZqI/AAAAAAAAB-w/pYJiKar04OE/s800/nreadability-icon-128.png</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>NReadability is a tool for removing clutter from HTML pages so that they are more enjoyable to read.</description>
+    <releaseNotes>First release.</releaseNotes>
+    <copyright>Copyright 2012</copyright>
+    <language />
+    <tags>C# HTML transcoder readability</tags>
+  </metadata>
+</package>

@@ -1,0 +1,432 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>NReadability</name>
+    </assembly>
+    <members>
+        <member name="P:NReadability.AttributeTransformationResult.TransformedValue">
+            <summary>
+            Result of the transformation.
+            </summary>
+        </member>
+        <member name="P:NReadability.AttributeTransformationResult.OriginalValueAttributeName">
+            <summary>
+            Name of the attribute that will be used to store the original value. Can be null.
+            </summary>
+        </member>
+        <member name="M:NReadability.DomSerializationParams.CreateDefault">
+            <summary>
+            Creates an instance of DomSerializationParams with parameters set to their defaults.
+            </summary>
+        </member>
+        <member name="P:NReadability.DomSerializationParams.PrettyPrint">
+            <summary>
+            Determines whether the output will be formatted.
+            </summary>
+        </member>
+        <member name="P:NReadability.DomSerializationParams.DontIncludeContentTypeMetaElement">
+            <summary>
+            Determines whether DOCTYPE will be included at the beginning of the output.
+            </summary>
+        </member>
+        <member name="P:NReadability.DomSerializationParams.DontIncludeMobileSpecificMetaElements">
+            <summary>
+            Determines whether mobile-specific elements (such as eg. meta HandheldFriendly) will be added/replaced in the output.
+            </summary>
+        </member>
+        <member name="P:NReadability.DomSerializationParams.DontIncludeDocTypeMetaElement">
+            <summary>
+            Determines whether a meta tag with a content-type specification will be added/replaced in the output.
+            </summary>
+        </member>
+        <member name="P:NReadability.DomSerializationParams.DontIncludeGeneratorMetaElement">
+            <summary>
+            Determines whether a meta tag with a generator specification will be added/replaced in the output.
+            </summary>
+        </member>
+        <member name="M:NReadability.EnumerableExtensions.SingleOrNone``1(System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            Returns the only one element in the sequence or default(T) if either the sequence doesn't contain any elements or it contains more than one element.
+            </summary>
+        </member>
+        <member name="T:NReadability.NReadabilityWebTranscoder">
+            <summary>
+            A class that extracts main content from a url.
+            </summary>
+        </member>
+        <member name="M:NReadability.NReadabilityWebTranscoder.#ctor(NReadability.NReadabilityTranscoder,NReadability.IUrlFetcher,System.Func{System.Int32,System.String})">
+            <summary>
+             Initializes a new instance of NReadabilityWebTranscoder.
+             Allows passing in custom-constructed NReadabilityTranscoder,
+             and a custom IUrlFetcher.
+            </summary>
+            <param name="transcoder">A NReadabilityTranscoder.</param>
+            <param name="urlFetcher">IFetcher instance to download content.</param>
+            <param name="pageSeparatorBuilder">A function that creates a HTML fragment for page separator. It takes the page number as an argument.</param>
+        </member>
+        <member name="M:NReadability.NReadabilityWebTranscoder.#ctor(NReadability.NReadabilityTranscoder,NReadability.IUrlFetcher)">
+            <summary>
+             Initializes a new instance of NReadabilityWebTranscoder.
+             Allows passing in custom-constructed NReadabilityTranscoder,
+             and a custom IUrlFetcher.
+            </summary>
+            <param name="transcoder">A NReadabilityTranscoder.</param>
+            <param name="urlFetcher">IFetcher instance to download content.</param>
+        </member>
+        <member name="M:NReadability.NReadabilityWebTranscoder.#ctor(NReadability.NReadabilityTranscoder)">
+            <summary>
+            Initializes a new instance of NReadabilityWebTranscoder.
+            Allows passing in custom-constructed NReadabilityTranscoder.
+            </summary>
+            <param name="transcoder">A NReadailityTranscoder.</param>
+        </member>
+        <member name="M:NReadability.NReadabilityWebTranscoder.#ctor">
+            <summary>
+            Initializes a new instance of NReadabilityWebTranscoder.
+            </summary>
+        </member>
+        <member name="M:NReadability.NReadabilityWebTranscoder.Transcode(NReadability.WebTranscodingInput)">
+            <summary>
+            Extracts article content from an HTML page at the given URL.
+            </summary>
+            <param name="webTranscodingInput">An object containing input parameters, i.a. URL of the page to be processed.</param>
+            <returns>An object containing transcoding result, i.a. extracted content and title.</returns>
+        </member>
+        <member name="M:NReadability.NReadabilityWebTranscoder.Transcode(System.String,NReadability.DomSerializationParams,System.Boolean@)">
+            <summary>
+            Extracts main article content from a HTML web page.
+            </summary>    
+            <param name="url">Url from which the content was downloaded. Used to resolve relative urls. Can be null.</param>
+            <param name="domSerializationParams">Contains parameters that modify the behaviour of the output serialization.</param>
+            <param name="mainContentExtracted">Determines whether the content has been extracted (if the article is not empty).</param>    
+            <returns>HTML markup containing extracted article content.</returns>
+        </member>
+        <member name="M:NReadability.NReadabilityWebTranscoder.Transcode(System.String,System.Boolean@)">
+            <summary>
+            Extracts main article content from a HTML web page using default DomSerializationParams.
+            </summary>    
+            <param name="url">Url from which the content was downloaded. Used to resolve relative urls. Can be null.</param>
+            <param name="mainContentExtracted">Determines whether the content has been extracted (if the article is not empty).</param>    
+            <returns>HTML markup containing extracted article content.</returns>
+        </member>
+        <member name="M:NReadability.NReadabilityWebTranscoder.AppendNextPage(System.Xml.Linq.XDocument,System.String)">
+            <summary>
+            Recursively appends subsequent pages of a multipage article.
+            </summary>
+            <param name="document">Compiled document</param>
+            <param name="url">Url of current page</param>
+        </member>
+        <member name="P:NReadability.NReadabilityWebTranscoder.PageSeparatorBuilder">
+            <summary>
+            A function which, given a current page number, constructs the HTML which will be used as a page separator.
+            </summary>
+        </member>
+        <member name="T:NReadability.SgmlDomBuilder">
+            <summary>
+            A class for constructing a DOM from HTML markup.
+            </summary>
+        </member>
+        <member name="M:NReadability.SgmlDomBuilder.BuildDocument(System.String)">
+            <summary>
+            Constructs a DOM (System.Xml.Linq.XDocument) from HTML markup.
+            </summary>
+            <param name="htmlContent">HTML markup from which the DOM is to be constructed.</param>
+            <returns>System.Linq.Xml.XDocument instance which is a DOM of the provided HTML markup.</returns>
+        </member>
+        <member name="T:NReadability.SgmlDomSerializer">
+            <summary>
+            A class for serializing a DOM to string.
+            </summary>
+        </member>
+        <member name="M:NReadability.SgmlDomSerializer.SerializeDocument(System.Xml.Linq.XDocument,NReadability.DomSerializationParams)">
+            <summary>
+            Serializes given DOM (System.Xml.Linq.XDocument object) to a string.
+            </summary>
+            <param name="document">System.Xml.Linq.XDocument instance containing the DOM to be serialized.</param>
+            <param name="domSerializationParams">Contains parameters that modify the behaviour of the output serialization.</param>
+            <returns>Serialized representation of the DOM.</returns>
+        </member>
+        <member name="M:NReadability.SgmlDomSerializer.SerializeDocument(System.Xml.Linq.XDocument)">
+            <summary>
+            Serializes given DOM (System.Xml.Linq.XDocument object) to a string.
+            </summary>
+            <param name="document">System.Xml.Linq.XDocument instance containing the DOM to be serialized.</param>
+            <returns>Serialized representation of the DOM.</returns>
+        </member>
+        <member name="T:NReadability.InternalErrorException">
+            <summary>
+            An exception that is thrown when an internal error occurrs in the application.
+            Internal error in the application means that there is a bug in the application.
+            </summary>
+        </member>
+        <member name="M:NReadability.InternalErrorException.#ctor(System.String,System.Exception)">
+            <summary>
+            Initializes a new instance of the InternalErrorException class with a specified error message and a reference to the inner exception that is the cause of this exception.
+            </summary>
+            <param name="message">The error message that explains the reason for the exception.</param>
+            <param name="innerException">The exception that is the cause of the current exception, or a null reference (Nothing in Visual Basic) if no inner exception is specified.</param>
+        </member>
+        <member name="M:NReadability.InternalErrorException.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the InternalErrorException class with a specified error message.
+            </summary>
+            <param name="message">The message that describes the error.</param>
+        </member>
+        <member name="M:NReadability.InternalErrorException.#ctor">
+            <summary>
+            Initializes a new instance of the InternalErrorException class.
+            </summary>
+        </member>
+        <member name="M:NReadability.InternalErrorException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Initializes a new instance of the InternalErrorException class with serialized data.
+            </summary>
+            <param name="info">The System.Runtime.Serialization.SerializationInfo that holds the serialized object data about the exception being thrown.</param>
+            <param name="context">The System.Runtime.Serialization.StreamingContext that contains contextual information about the source or destination.</param>
+        </member>
+        <member name="T:NReadability.NReadabilityTranscoder">
+            <summary>
+            A class that extracts main content from a HTML page.
+            </summary>
+        </member>
+        <member name="F:NReadability.NReadabilityTranscoder.DefaultReadingStyle">
+            <summary>
+            Default styling of the extracted article.
+            </summary>
+        </member>
+        <member name="F:NReadability.NReadabilityTranscoder.DefaultReadingMargin">
+            <summary>
+            Default margin of the extracted article.
+            </summary>
+        </member>
+        <member name="F:NReadability.NReadabilityTranscoder.DefaultReadingSize">
+            <summary>
+            Default size of the font used for the extracted article.
+            </summary>
+        </member>
+        <member name="M:NReadability.NReadabilityTranscoder.#ctor(System.Boolean,System.Boolean,System.Boolean,NReadability.ReadingStyle,NReadability.ReadingMargin,NReadability.ReadingSize)">
+            <summary>
+            Initializes a new instance of NReadabilityTranscoder. Allows setting all options.
+            </summary>
+            <param name="dontStripUnlikelys">Determines whether elements that are unlikely to be a part of main content will be removed.</param>
+            <param name="dontNormalizeSpacesInTextContent">Determines whether spaces in InnerText properties of elements will be normalized automatically (eg. whether double spaces will be replaced with single spaces).</param>
+            <param name="dontWeightClasses">Determines whether 'weight-class' algorithm will be used when cleaning content.</param>
+            <param name="readingStyle">Styling for the extracted article.</param>
+            <param name="readingMargin">Margin for the extracted article.</param>
+            <param name="readingSize">Font size for the extracted article.</param>
+        </member>
+        <member name="M:NReadability.NReadabilityTranscoder.#ctor(NReadability.ReadingStyle,NReadability.ReadingMargin,NReadability.ReadingSize)">
+            <summary>
+            Initializes a new instance of NReadabilityTranscoder. Allows setting reading options.
+            </summary>
+            <param name="readingStyle">Styling for the extracted article.</param>
+            <param name="readingMargin">Margin for the extracted article.</param>
+            <param name="readingSize">Font size for the extracted article.</param>
+        </member>
+        <member name="M:NReadability.NReadabilityTranscoder.#ctor">
+            <summary>
+            Initializes a new instance of NReadabilityTranscoder.
+            </summary>
+        </member>
+        <member name="M:NReadability.NReadabilityTranscoder.Transcode(NReadability.TranscodingInput)">
+            <summary>
+            Extracts article content from an HTML page.
+            </summary>
+            <param name="transcodingInput">An object containing input parameters, i.a. html content to be processed.</param>
+            <returns>An object containing transcoding result, i.a. extracted content and title.</returns>
+        </member>
+        <member name="M:NReadability.NReadabilityTranscoder.Transcode(System.String,System.String,NReadability.DomSerializationParams,System.Boolean@,System.String@)">
+            <summary>
+            Extracts main article content from a HTML page.
+            </summary>
+            <param name="htmlContent">HTML markup to process.</param>
+            <param name="url">Url from which the content was downloaded. Used to resolve relative urls. Can be null.</param>
+            <param name="domSerializationParams">Contains parameters that modify the behaviour of the output serialization.</param>
+            <param name="mainContentExtracted">Determines whether the content has been extracted (if the article is not empty).</param>
+            <param name="nextPageUrl">If the content contains a link to a subsequent page, it is returned here.</param>
+            <returns>HTML markup containing extracted article content.</returns>
+        </member>
+        <member name="M:NReadability.NReadabilityTranscoder.Transcode(System.String,System.String,System.Boolean@,System.String@)">
+            <summary>
+            Extracts main article content from a HTML page.
+            </summary>
+            <param name="htmlContent">HTML markup to process.</param>
+            <param name="url">Url from which the content was downloaded. Used to resolve relative urls. Can be null.</param>
+            <param name="mainContentExtracted">Determines whether the content has been extracted (if the article is not empty).</param>
+            <param name="nextPageUrl">If the content contains a link to a subsequent page, it is returned here.</param>
+            <returns>HTML markup containing extracted article content.</returns>
+        </member>
+        <member name="M:NReadability.NReadabilityTranscoder.Transcode(System.String,System.String,System.Boolean@)">
+            <summary>
+            Extracts main article content from a HTML page.
+            </summary>
+            <param name="htmlContent">HTML markup to process.</param>
+            <param name="url">Url from which the content was downloaded. Used to resolve relative urls. Can be null.</param>
+            <param name="mainContentExtracted">Determines whether the content has been extracted (if the article is not empty).</param>    
+            <returns>HTML markup containing extracted article content.</returns>
+        </member>
+        <member name="M:NReadability.NReadabilityTranscoder.Transcode(System.String,System.Boolean@)">
+            <summary>
+            Extracts main article content from a HTML page.
+            </summary>
+            <param name="htmlContent">HTML markup to process.</param>
+            <param name="mainContentExtracted">Determines whether the content has been extracted (if the article is not empty).</param>    
+            <returns>HTML markup containing extracted article content.</returns>
+        </member>
+        <member name="M:NReadability.NReadabilityTranscoder.TranscodeToXml(System.String,System.String,System.Boolean@,System.String@,System.String@)">
+            <summary>
+            Extracts main article content from a HTML page.
+            </summary>
+            <param name="htmlContent">HTML markup to process.</param>
+            <param name="url">Url from which the content was downloaded. Used to resolve relative urls. Can be null.</param>
+            <param name="mainContentExtracted">Determines whether the content has been extracted (if the article is not empty).</param>
+            <param name="extractedTitle">Will contain article title (if we were able to extract it).</param>
+            <param name="nextPageUrl">If the content contains a link to a subsequent page, it is returned here.</param>
+            <returns>An XDocument containing extracted article content.</returns>
+        </member>
+        <member name="M:NReadability.NReadabilityTranscoder.FindNextPageLink(System.Xml.Linq.XElement,System.String)">
+            <summary>
+            Looks for any paging links that may occur within the document
+            </summary>
+            <param name="body">Content body</param>
+            <param name="url">Url of document</param>
+        </member>
+        <member name="M:NReadability.NReadabilityTranscoder.FindBaseUrl(System.String)">
+            <summary>
+            Find a cleaned up version of the current URL, to use for comparing links for possible next-pageyness.
+            </summary>    
+        </member>
+        <member name="M:NReadability.NReadabilityTranscoder.GetClassWeight(System.Xml.Linq.XElement)">
+            <summary>
+            Get "class/id weight" of the given <paramref name="element" />. Uses regular expressions to tell if this element looks good or bad.
+            </summary>
+        </member>
+        <member name="M:NReadability.NReadabilityTranscoder.KillBreaks(System.Xml.Linq.XElement)">
+            <summary>
+            Removes extraneous break tags from a <paramref name="element" />.
+            </summary>
+        </member>
+        <member name="M:NReadability.NReadabilityTranscoder.Clean(System.Xml.Linq.XElement,System.String)">
+            <summary>
+            Cleans an element of all elements with name <paramref name="elementName" />.
+            (Unless it's a youtube/vimeo video. People love movies.)
+            </summary>
+        </member>
+        <member name="M:NReadability.NReadabilityTranscoder.CleanConditionally(System.Xml.Linq.XElement,System.String)">
+            <summary>
+            Cleans a <paramref name="rootElement" /> of all elements with name <paramref name="elementName" /> if they look fishy.
+            "Fishy" is an algorithm based on content length, classnames, link density, number of images and embeds, etc.
+            </summary>
+        </member>
+        <member name="M:NReadability.NReadabilityTranscoder.CleanHeaders(System.Xml.Linq.XElement)">
+            <summary>
+            Cleans out spurious headers from a <paramref name="element" />. Checks things like classnames and link density.
+            </summary>
+        </member>
+        <member name="M:NReadability.NReadabilityTranscoder.CleanStyles(System.Xml.Linq.XElement)">
+            <summary>
+            Removes the style attribute from the specified <paramref name="rootElement" /> and all elements underneath it.
+            </summary>
+        </member>
+        <member name="P:NReadability.NReadabilityTranscoder.ImageSourceTranformer">
+            <summary>
+             A function to transform the value of 'src' attribute on 'img' elements. Can be null.
+            </summary>
+        </member>
+        <member name="P:NReadability.NReadabilityTranscoder.AnchorHrefTranformer">
+            <summary>
+             A function to transform the value of 'href' attribute on 'a' elements. Can be null.
+            </summary>
+        </member>
+        <member name="T:NReadability.NReadabilityTranscoder.LinkData">
+            <summary>
+            Used in FindNextPageLink
+            </summary>
+        </member>
+        <member name="T:NReadability.ReadingStyle">
+            <summary>
+            Determines how the extracted article will be styled.
+            </summary>
+        </member>
+        <member name="F:NReadability.ReadingStyle.Newspaper">
+            <summary>
+            Newspaper style.
+            </summary>
+        </member>
+        <member name="F:NReadability.ReadingStyle.Novel">
+            <summary>
+            Novel style.
+            </summary>
+        </member>
+        <member name="F:NReadability.ReadingStyle.Ebook">
+            <summary>
+            Ebook style.
+            </summary>
+        </member>
+        <member name="F:NReadability.ReadingStyle.Terminal">
+            <summary>
+            Terminal style.
+            </summary>
+        </member>
+        <member name="T:NReadability.ReadingMargin">
+            <summary>
+            Determines how wide the margin of the extracted article will be.
+            </summary>
+        </member>
+        <member name="F:NReadability.ReadingMargin.XNarrow">
+            <summary>
+            Extra-narrow margin.
+            </summary>
+        </member>
+        <member name="F:NReadability.ReadingMargin.Narrow">
+            <summary>
+            Narrow margin.
+            </summary>
+        </member>
+        <member name="F:NReadability.ReadingMargin.Medium">
+            <summary>
+            Medium margin.
+            </summary>
+        </member>
+        <member name="F:NReadability.ReadingMargin.Wide">
+            <summary>
+            Wide margin.
+            </summary>
+        </member>
+        <member name="F:NReadability.ReadingMargin.XWide">
+            <summary>
+            Extra-wide margin.
+            </summary>
+        </member>
+        <member name="T:NReadability.ReadingSize">
+            <summary>
+            Determines how large the font of the extracted article will be.
+            </summary>
+        </member>
+        <member name="F:NReadability.ReadingSize.XSmall">
+            <summary>
+            Extra-small font.
+            </summary>
+        </member>
+        <member name="F:NReadability.ReadingSize.Small">
+            <summary>
+            Small font.
+            </summary>
+        </member>
+        <member name="F:NReadability.ReadingSize.Medium">
+            <summary>
+            Medium font.
+            </summary>
+        </member>
+        <member name="F:NReadability.ReadingSize.Large">
+            <summary>
+            Large font.
+            </summary>
+        </member>
+        <member name="F:NReadability.ReadingSize.XLarge">
+            <summary>
+            Extra-large font.
+            </summary>
+        </member>
+    </members>
+</doc>

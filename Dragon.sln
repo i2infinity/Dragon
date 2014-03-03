@@ -1,0 +1,113 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sentiment.Analysis.Interfaces", "Sentiment.Analysis.Interfaces\Sentiment.Analysis.Interfaces.csproj", "{1DB5DB2B-48FE-4454-8F2D-11F8A6436CEE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DragonClassifier", "TrainTheDragon\DragonClassifier.csproj", "{938B1C88-D4A1-40BA-99D4-51D4260C3F76}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NLPToolkit", "NLPToolkit\NLPToolkit.csproj", "{8A9808DB-71FA-44BA-B562-F2903F669045}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NLPToolkit.Tests", "NLPToolkit.Tests\NLPToolkit.Tests.csproj", "{7120F52C-93BD-413D-915A-A360225B2654}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DragonHelper", "DragonHelper\DragonHelper.csproj", "{BB8FA40C-F2F8-4AD5-999C-2E3981F9B6B8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{60AE67B0-4906-4CFF-ABD0-2BE2BF62657B}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ExternalLibs", "ExternalLibs", "{CC1D19AF-3D52-4F83-B312-96C9E7364633}"
+	ProjectSection(SolutionItems) = preProject
+		ExternalLibs\ICSharpCode.SharpZipLib.dll = ExternalLibs\ICSharpCode.SharpZipLib.dll
+		ExternalLibs\ikvm-native-win32-x64.dll = ExternalLibs\ikvm-native-win32-x64.dll
+		ExternalLibs\ikvm-native-win32-x86.dll = ExternalLibs\ikvm-native-win32-x86.dll
+		ExternalLibs\IKVM.AWT.WinForms.dll = ExternalLibs\IKVM.AWT.WinForms.dll
+		ExternalLibs\ikvm.exe = ExternalLibs\ikvm.exe
+		ExternalLibs\ikvm.exe.config = ExternalLibs\ikvm.exe.config
+		ExternalLibs\IKVM.OpenJDK.Beans.dll = ExternalLibs\IKVM.OpenJDK.Beans.dll
+		ExternalLibs\IKVM.OpenJDK.Charsets.dll = ExternalLibs\IKVM.OpenJDK.Charsets.dll
+		ExternalLibs\IKVM.OpenJDK.Corba.dll = ExternalLibs\IKVM.OpenJDK.Corba.dll
+		ExternalLibs\IKVM.OpenJDK.Core.dll = ExternalLibs\IKVM.OpenJDK.Core.dll
+		ExternalLibs\IKVM.OpenJDK.Jdbc.dll = ExternalLibs\IKVM.OpenJDK.Jdbc.dll
+		ExternalLibs\IKVM.OpenJDK.Management.dll = ExternalLibs\IKVM.OpenJDK.Management.dll
+		ExternalLibs\IKVM.OpenJDK.Media.dll = ExternalLibs\IKVM.OpenJDK.Media.dll
+		ExternalLibs\IKVM.OpenJDK.Misc.dll = ExternalLibs\IKVM.OpenJDK.Misc.dll
+		ExternalLibs\IKVM.OpenJDK.Naming.dll = ExternalLibs\IKVM.OpenJDK.Naming.dll
+		ExternalLibs\IKVM.OpenJDK.Remoting.dll = ExternalLibs\IKVM.OpenJDK.Remoting.dll
+		ExternalLibs\IKVM.OpenJDK.Security.dll = ExternalLibs\IKVM.OpenJDK.Security.dll
+		ExternalLibs\IKVM.OpenJDK.SwingAWT.dll = ExternalLibs\IKVM.OpenJDK.SwingAWT.dll
+		ExternalLibs\IKVM.OpenJDK.Text.dll = ExternalLibs\IKVM.OpenJDK.Text.dll
+		ExternalLibs\IKVM.OpenJDK.Tools.dll = ExternalLibs\IKVM.OpenJDK.Tools.dll
+		ExternalLibs\IKVM.OpenJDK.Util.dll = ExternalLibs\IKVM.OpenJDK.Util.dll
+		ExternalLibs\IKVM.OpenJDK.XML.API.dll = ExternalLibs\IKVM.OpenJDK.XML.API.dll
+		ExternalLibs\IKVM.OpenJDK.XML.Bind.dll = ExternalLibs\IKVM.OpenJDK.XML.Bind.dll
+		ExternalLibs\IKVM.OpenJDK.XML.Crypto.dll = ExternalLibs\IKVM.OpenJDK.XML.Crypto.dll
+		ExternalLibs\IKVM.OpenJDK.XML.Parse.dll = ExternalLibs\IKVM.OpenJDK.XML.Parse.dll
+		ExternalLibs\IKVM.OpenJDK.XML.Transform.dll = ExternalLibs\IKVM.OpenJDK.XML.Transform.dll
+		ExternalLibs\IKVM.OpenJDK.XML.WebServices.dll = ExternalLibs\IKVM.OpenJDK.XML.WebServices.dll
+		ExternalLibs\IKVM.OpenJDK.XML.XPath.dll = ExternalLibs\IKVM.OpenJDK.XML.XPath.dll
+		ExternalLibs\IKVM.Reflection.dll = ExternalLibs\IKVM.Reflection.dll
+		ExternalLibs\IKVM.Runtime.dll = ExternalLibs\IKVM.Runtime.dll
+		ExternalLibs\IKVM.Runtime.JNI.dll = ExternalLibs\IKVM.Runtime.JNI.dll
+		ExternalLibs\ikvmc.exe = ExternalLibs\ikvmc.exe
+		ExternalLibs\ikvmc.exe.config = ExternalLibs\ikvmc.exe.config
+		ExternalLibs\ikvmstub.exe = ExternalLibs\ikvmstub.exe
+		ExternalLibs\ikvmstub.exe.config = ExternalLibs\ikvmstub.exe.config
+		ExternalLibs\jwnl-1.3.3.jar = ExternalLibs\jwnl-1.3.3.jar
+		ExternalLibs\Open Notebook.onetoc2 = ExternalLibs\Open Notebook.onetoc2
+		ExternalLibs\opennlp-maxent-3.0.3.jar = ExternalLibs\opennlp-maxent-3.0.3.jar
+		ExternalLibs\opennlp-tools-1.5.3.jar = ExternalLibs\opennlp-tools-1.5.3.jar
+		ExternalLibs\opennlp-uima-1.5.3.jar = ExternalLibs\opennlp-uima-1.5.3.jar
+		ExternalLibs\opennlp.dll = ExternalLibs\opennlp.dll
+		ExternalLibs\resolver.jar = ExternalLibs\resolver.jar
+		ExternalLibs\SAXParser.java = ExternalLibs\SAXParser.java
+		ExternalLibs\serializer.jar = ExternalLibs\serializer.jar
+		ExternalLibs\xercesImpl.jar = ExternalLibs\xercesImpl.jar
+		ExternalLibs\xercesSamples.jar = ExternalLibs\xercesSamples.jar
+		ExternalLibs\xml-apis.jar = ExternalLibs\xml-apis.jar
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DragonRepository", "DragonRepository", "{B205E5D0-BAD3-4F61-B34A-511781136601}"
+	ProjectSection(SolutionItems) = preProject
+		DragonRepository\en-sent.bin = DragonRepository\en-sent.bin
+		DragonRepository\en-token.bin = DragonRepository\en-token.bin
+		DragonRepository\ExcludedTokens.txt = DragonRepository\ExcludedTokens.txt
+		DragonRepository\Negative.Evidence.csv = DragonRepository\Negative.Evidence.csv
+		DragonRepository\Positive.Evidence.csv = DragonRepository\Positive.Evidence.csv
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1DB5DB2B-48FE-4454-8F2D-11F8A6436CEE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1DB5DB2B-48FE-4454-8F2D-11F8A6436CEE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1DB5DB2B-48FE-4454-8F2D-11F8A6436CEE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1DB5DB2B-48FE-4454-8F2D-11F8A6436CEE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{938B1C88-D4A1-40BA-99D4-51D4260C3F76}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{938B1C88-D4A1-40BA-99D4-51D4260C3F76}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{938B1C88-D4A1-40BA-99D4-51D4260C3F76}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{938B1C88-D4A1-40BA-99D4-51D4260C3F76}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8A9808DB-71FA-44BA-B562-F2903F669045}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8A9808DB-71FA-44BA-B562-F2903F669045}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8A9808DB-71FA-44BA-B562-F2903F669045}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8A9808DB-71FA-44BA-B562-F2903F669045}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7120F52C-93BD-413D-915A-A360225B2654}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7120F52C-93BD-413D-915A-A360225B2654}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7120F52C-93BD-413D-915A-A360225B2654}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7120F52C-93BD-413D-915A-A360225B2654}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BB8FA40C-F2F8-4AD5-999C-2E3981F9B6B8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BB8FA40C-F2F8-4AD5-999C-2E3981F9B6B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BB8FA40C-F2F8-4AD5-999C-2E3981F9B6B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BB8FA40C-F2F8-4AD5-999C-2E3981F9B6B8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

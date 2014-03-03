@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>NBoilerPipe</id>
+    <version>1.2</version>
+    <authors>Amrish</authors>
+    <owners>Immortal</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>NboilerPipe is a tool for removing clutter from HTML pages so that they are more enjoyable to read.</description>
+    <releaseNotes />
+    <copyright>Copyright 2012</copyright>
+    <dependencies>
+      <dependency id="HtmlAgilityPack" version="1.4.6" />
+    </dependencies>
+  </metadata>
+</package>
