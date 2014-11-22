@@ -1,7 +1,7 @@
 Dragon Sentiment Classifier
 ===========================
 
-Dragon Sentiment Classifier is primarily used in the Product Review Search App - Solvy http://www.solvyapp.com/
+Dragon Sentiment Classifier is primarily used in the Product Review Search App - Solvy http://solvy.cloudapp.net/
 
 Description
 ----------------------
