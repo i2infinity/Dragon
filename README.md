@@ -3,6 +3,10 @@ Dragon Sentiment Classifier
 
 Dragon Sentiment Classifier is primarily used in the Product Review Search App - Solvy http://solvy.cloudapp.net/
 
+<p align="center">
+  <img src="http://solvy.cloudapp.net/images/blurr_Phone.png"/>
+</p>
+
 Description
 ----------------------
 
